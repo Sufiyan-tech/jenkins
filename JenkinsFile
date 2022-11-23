@@ -1,10 +1,25 @@
+def num = 2
+
 pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                switch(num){
+                    case 0:
+                        println "Number Is 0"
+                        break
+                    case {num > 0}:
+                        println "Number Is +Ve"
+                        break
+                    case {num < 0}:
+                        println "Number Is -Ve"
+                        break
+                    default:
+                        println "Invalid Number"
+                        break
+                }
             }
         }
         stage('Test') {
